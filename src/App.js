@@ -1,18 +1,28 @@
 import logo from './logo.svg';
 //import './App.css';
+import Todo from './Todo';
+import React, {Component} from 'react';
 
-function App() {
+class App extends Component {
   state = {
     todos: [
       { id: 1, content:"watch untamed" },
       { id: 2, content:"read mdzs" }
     ]
   }
-  return (
-    <div className="App">
-      
-    </div>
-  );
+
+  deleteTodo = (id) =>{
+    console.log(id);
+  }
+
+  render(){
+    return (
+      <div className="todo-app container">
+        <h1 className="center blue-text">Todos</h1>
+        <Todo todos={this.state.todos} deleteTodo={this.deleteTodo}/>
+      </div>
+    );
+  }
 }
 
 export default App;
